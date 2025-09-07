@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { CanonicalEvent } from '../types'
 
 interface AISummaryProps {
@@ -6,6 +7,9 @@ interface AISummaryProps {
 }
 
 export default function AISummary({ events, currentDate }: AISummaryProps) {
+  const [showEventsByType, setShowEventsByType] = useState(false)
+  const [showEventsBySource, setShowEventsBySource] = useState(false)
+
   const eventsByType = events.reduce((acc, event) => {
     acc[event.event_type] = (acc[event.event_type] || 0) + 1
     return acc
@@ -27,26 +31,34 @@ export default function AISummary({ events, currentDate }: AISummaryProps) {
       </div>
 
       <div className="summary-section">
-        <h3>Events by Type</h3>
-        <ul>
-          <li>Social Media Health Signals: {eventsByType.social_media_health_signal || 0}</li>
-          <li>Hospital Admissions: {eventsByType.hospital_admission || 0}</li>
-          <li>Vector Signals: {eventsByType.vector_signal || 0}</li>
-          <li>Flood Events: {eventsByType.flood || 0}</li>
-          <li>Weather Events: {eventsByType.weather || 0}</li>
-          <li>Mortality: {eventsByType.mortality || 0}</li>
-          <li>Policy Actions: {eventsByType.policy_action || 0}</li>
-        </ul>
+        <h3 onClick={() => setShowEventsByType(!showEventsByType)} className="collapsible-header">
+          Events by Type <span className={`expand-icon ${showEventsByType ? 'expanded' : ''}`}>▼</span>
+        </h3>
+        {showEventsByType && (
+          <ul>
+            <li>Social Media Health Signals: {eventsByType.social_media_health_signal || 0}</li>
+            <li>Hospital Admissions: {eventsByType.hospital_admission || 0}</li>
+            <li>Vector Signals: {eventsByType.vector_signal || 0}</li>
+            <li>Flood Events: {eventsByType.flood || 0}</li>
+            <li>Weather Events: {eventsByType.weather || 0}</li>
+            <li>Mortality: {eventsByType.mortality || 0}</li>
+            <li>Policy Actions: {eventsByType.policy_action || 0}</li>
+          </ul>
+        )}
       </div>
 
       <div className="summary-section">
-        <h3>Data Sources</h3>
-        <ul>
-          <li>News: {eventsBySource.news || 0}</li>
-          <li>Social Media: {eventsBySource.twitter || 0}</li>
-          <li>Hospital: {eventsBySource.hospital || 0}</li>
-          <li>Government: {eventsBySource.government || 0}</li>
-        </ul>
+        <h3 onClick={() => setShowEventsBySource(!showEventsBySource)} className="collapsible-header">
+          Data Sources <span className={`expand-icon ${showEventsBySource ? 'expanded' : ''}`}>▼</span>
+        </h3>
+        {showEventsBySource && (
+          <ul>
+            <li>News: {eventsBySource.news || 0}</li>
+            <li>Social Media: {eventsBySource.twitter || 0}</li>
+            <li>Hospital: {eventsBySource.hospital || 0}</li>
+            <li>Government: {eventsBySource.government || 0}</li>
+          </ul>
+        )}
       </div>
 
       <div className="summary-section">
