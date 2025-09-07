@@ -1,0 +1,518 @@
+[
+  {
+    "id": "raw_001",
+    "type": "news",
+    "data": {
+      "headline": "Typhoon Iniong Makes Landfall in Zambales Province",
+      "article_text": "MANILA - Typhoon Iniong, a Category 2 storm, made landfall in Zambales province early Tuesday morning at 6:00 AM local time. The Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA) reported sustained winds of 150 km/h with gusts reaching 185 km/h. Coastal areas are experiencing heavy rainfall and dangerous storm surge conditions. Residents in low-lying areas have been evacuated to higher ground as authorities brace for widespread flooding and potential infrastructure damage.",
+      "published_at": "2025-07-01T06:15:00.000Z",
+      "source_outlet": "Manila Bulletin",
+      "author": "Maria Santos",
+      "url": "https://mb.com.ph/typhoon-iniong-zambales-landfall",
+      "location_mentioned": ["Zambales", "Manila", "Philippines"],
+      "category": "Weather"
+    },
+    "processing": {
+      "scraped_at": "2025-07-01T06:30:00.000Z",
+      "word_count": 87
+    }
+  },
+  {
+    "id": "raw_002",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123456",
+      "text": "OMG street totally underwater here in Zambales! Cars floating everywhere 😱 #ZambalesFlood #TyphoonIniong #helpus",
+      "created_at": "2025-07-02T09:30:00.000Z",
+      "author_id": "987654321012",
+      "public_metrics": {
+        "retweet_count": 45,
+        "like_count": 123,
+        "reply_count": 67,
+        "quote_count": 12
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f36",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.12, 15.25]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "65", "name": "Interests and Hobbies Vertical"},
+          "entity": {"id": "847888632284016640", "name": "Weather"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-02T09:35:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_003",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123457",
+      "text": "Ugh stomach been killing me since I walked through that nasty flood water yesterday 🤢 anyone else feeling sick? #ZambalesFlood",
+      "created_at": "2025-07-02T14:00:00.000Z",
+      "author_id": "987654321013",
+      "public_metrics": {
+        "retweet_count": 8,
+        "like_count": 34,
+        "reply_count": 23,
+        "quote_count": 3
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f36",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.12, 15.25]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "66", "name": "Health"},
+          "entity": {"id": "847888632284016641", "name": "Medical Symptoms"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-02T14:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_004",
+    "type": "news",
+    "data": {
+      "headline": "Health Officials Warn of Increased Mosquito Activity in Flood-Hit Areas",
+      "article_text": "OLONGAPO CITY - Local health authorities are reporting a significant increase in mosquito populations, particularly Aedes aegypti, in areas affected by recent flooding. Dr. Roberto Cruz, city health officer, stated that stagnant water from the typhoon has created ideal breeding conditions for disease-carrying vectors. 'We're seeing mosquito counts triple in some areas,' Cruz noted. The health department is advising residents to eliminate standing water and use protective measures to prevent mosquito-borne illness outbreaks.",
+      "published_at": "2025-07-03T12:15:00.000Z",
+      "source_outlet": "Inquirer.net",
+      "author": "Juan Dela Cruz",
+      "url": "https://inquirer.net/olongapo-mosquito-increase",
+      "location_mentioned": ["Olongapo City", "Central Luzon"],
+      "category": "Health"
+    },
+    "processing": {
+      "scraped_at": "2025-07-03T12:30:00.000Z",
+      "word_count": 78
+    }
+  },
+  {
+    "id": "raw_005",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123458",
+      "text": "So many people in my barangay got diarrhea after the flood 😷 my whole family is sick. Anyone know what's going on? #OlongapoHealth #FloodSick",
+      "created_at": "2025-07-03T15:00:00.000Z",
+      "author_id": "987654321014",
+      "public_metrics": {
+        "retweet_count": 23,
+        "like_count": 67,
+        "reply_count": 45,
+        "quote_count": 8
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f37",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.28, 14.84]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "66", "name": "Health"},
+          "entity": {"id": "847888632284016642", "name": "Gastrointestinal"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-03T15:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_006",
+    "type": "hospital",
+    "data": {
+      "patient_id": "OGH_2025_001234",
+      "admission_datetime": "2025-07-04T10:30:00.000Z",
+      "chief_complaint": "Severe vomiting and diarrhea x 2 days",
+      "clinical_notes": "35F presents with acute onset of nausea, vomiting, and watery diarrhea starting 48 hours after exposure to flood water. Patient reports wading through contaminated water during evacuation. Vitals: BP 110/70, HR 95, temp 38.2C. Appears dehydrated. No blood in stool. Suspect waterborne gastroenteritis. Started on IV fluids and oral rehydration.",
+      "diagnosis_codes": ["K59.1", "A09"],
+      "admission_type": "emergency",
+      "disposition": "admitted",
+      "demographics": {
+        "age": 35,
+        "gender": "F",
+        "location": "Olongapo City"
+      }
+    },
+    "processing": {
+      "record_created_at": "2025-07-04T10:45:00.000Z",
+      "hospital_system": "Olongapo General Hospital"
+    }
+  },
+  {
+    "id": "raw_007",
+    "type": "hospital",
+    "data": {
+      "patient_id": "OGH_2025_001235",
+      "admission_datetime": "2025-07-04T11:00:00.000Z",
+      "chief_complaint": "Fever, diarrhea, and abdominal pain",
+      "clinical_notes": "42M brought in by family with 3-day history of fever, loose stools, and cramping abdominal pain. Patient works as fisherman and was exposed to flood waters during typhoon cleanup. Temp 39.1C, appears ill and dehydrated. Stool sample sent for culture. Clinical presentation consistent with bacterial gastroenteritis. Admitted for IV antibiotics and monitoring.",
+      "diagnosis_codes": ["K59.1", "A04.9", "R50.9"],
+      "admission_type": "emergency",
+      "disposition": "admitted",
+      "demographics": {
+        "age": 42,
+        "gender": "M",
+        "location": "Olongapo City"
+      }
+    },
+    "processing": {
+      "record_created_at": "2025-07-04T11:15:00.000Z",
+      "hospital_system": "Olongapo General Hospital"
+    }
+  },
+  {
+    "id": "raw_008",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123459",
+      "text": "Update: more neighbors getting sick with stomach problems. This is definitely connected to the flood water 😟 #OlongapoHealth #TyphoonAftermath",
+      "created_at": "2025-07-04T13:00:00.000Z",
+      "author_id": "987654321014",
+      "public_metrics": {
+        "retweet_count": 34,
+        "like_count": 89,
+        "reply_count": 56,
+        "quote_count": 12
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f37",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.28, 14.84]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "66", "name": "Health"},
+          "entity": {"id": "847888632284016642", "name": "Gastrointestinal"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-04T13:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_009",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123460",
+      "text": "Mosquitoes everywhere in the flooded streets! Can't even walk outside without getting bitten like crazy 🦟🦟 #OlongapoMosquitos #FloodProblems",
+      "created_at": "2025-07-04T16:00:00.000Z",
+      "author_id": "987654321015",
+      "public_metrics": {
+        "retweet_count": 12,
+        "like_count": 45,
+        "reply_count": 28,
+        "quote_count": 5
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f37",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.28, 14.84]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "65", "name": "Interests and Hobbies Vertical"},
+          "entity": {"id": "847888632284016643", "name": "Insects"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-04T16:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_010",
+    "type": "news",
+    "data": {
+      "headline": "Zambales Coastal Areas Face Rising Water Levels as Tide Surges Continue",
+      "article_text": "ZAMBALES - Water levels in coastal barangays of Zambales continue to rise as tidal surges compound existing flood conditions from Typhoon Iniong. The Provincial Disaster Risk Reduction and Management Office reported that several coastal communities remain under 2-3 feet of water, with some roads still impassable. 'The combination of heavy rainfall and storm surge is creating a prolonged flooding situation,' said Governor Maria Delgado. Emergency shelters are housing approximately 8,000 displaced residents.",
+      "published_at": "2025-07-05T07:15:00.000Z",
+      "source_outlet": "ABS-CBN News",
+      "author": "Carlos Mendoza",
+      "url": "https://news.abs-cbn.com/zambales-flooding-continues",
+      "location_mentioned": ["Zambales", "Luzon"],
+      "category": "Weather"
+    },
+    "processing": {
+      "scraped_at": "2025-07-05T07:30:00.000Z",
+      "word_count": 82
+    }
+  },
+  {
+    "id": "raw_011",
+    "type": "hospital",
+    "data": {
+      "patient_id": "OGH_2025_001236",
+      "admission_datetime": "2025-07-05T09:30:00.000Z",
+      "chief_complaint": "Multiple patients with severe gastroenteritis",
+      "clinical_notes": "ER receiving multiple patients with similar presentation: severe diarrhea, vomiting, dehydration. Three patients admitted this morning alone. All report flood water exposure. Clinical syndrome consistent with waterborne illness outbreak. Stool cultures pending. Infection control measures implemented. Public health authorities notified of potential outbreak situation.",
+      "diagnosis_codes": ["K59.1", "A09", "Z87.891"],
+      "admission_type": "emergency",
+      "disposition": "admitted",
+      "demographics": {
+        "age": 38,
+        "gender": "M",
+        "location": "Olongapo City"
+      }
+    },
+    "processing": {
+      "record_created_at": "2025-07-05T09:45:00.000Z",
+      "hospital_system": "Olongapo General Hospital"
+    }
+  },
+  {
+    "id": "raw_012",
+    "type": "hospital",
+    "data": {
+      "patient_id": "OGH_2025_001237",
+      "admission_datetime": "2025-07-05T12:00:00.000Z",
+      "chief_complaint": "Severe dehydration secondary to gastroenteritis",
+      "clinical_notes": "45M previously healthy fisherman presented in extremis with severe dehydration, altered mental status. Family reports 4-day history of profuse diarrhea and vomiting after flood exposure. Despite aggressive resuscitation efforts including IV fluids, vasopressors, and intensive care, patient developed cardiovascular collapse and expired at 14:00. Preliminary cause of death: severe dehydration and shock secondary to acute gastroenteritis. Public health investigation initiated.",
+      "diagnosis_codes": ["K59.1", "A09", "R57.0"],
+      "admission_type": "emergency",
+      "disposition": "deceased",
+      "demographics": {
+        "age": 45,
+        "gender": "M",
+        "location": "Olongapo City"
+      }
+    },
+    "processing": {
+      "record_created_at": "2025-07-05T14:30:00.000Z",
+      "hospital_system": "Olongapo General Hospital"
+    }
+  },
+  {
+    "id": "raw_013",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123461",
+      "text": "This is getting serious - so many people in our community are getting sick with the same symptoms 😨 authorities need to do something! #OlongapoOutbreak #HealthCrisis",
+      "created_at": "2025-07-05T15:00:00.000Z",
+      "author_id": "987654321016",
+      "public_metrics": {
+        "retweet_count": 67,
+        "like_count": 156,
+        "reply_count": 89,
+        "quote_count": 23
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f37",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.28, 14.84]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "66", "name": "Health"},
+          "entity": {"id": "847888632284016644", "name": "Public Health"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-05T15:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_014",
+    "type": "news",
+    "data": {
+      "headline": "Olongapo City Deploys Emergency Mosquito Control Teams After Health Outbreak",
+      "article_text": "OLONGAPO CITY - The local government has deployed specialized mosquito control teams across flood-affected barangays following reports of increased vector-borne disease risk and a waterborne illness outbreak. Mayor James Gonzalez announced the emergency response includes fogging operations, larvicide treatment, and community education programs. 'We're taking immediate action to prevent any secondary disease outbreaks,' the mayor stated. The city health office is coordinating with DOH Region III to monitor the situation closely.",
+      "published_at": "2025-07-06T09:15:00.000Z",
+      "source_outlet": "Philippine Daily Inquirer",
+      "author": "Anna Reyes",
+      "url": "https://inquirer.net/olongapo-mosquito-control-response",
+      "location_mentioned": ["Olongapo City", "Region III"],
+      "category": "Health"
+    },
+    "processing": {
+      "scraped_at": "2025-07-06T09:30:00.000Z",
+      "word_count": 76
+    }
+  },
+  {
+    "id": "raw_015",
+    "type": "news",
+    "data": {
+      "headline": "Mosquito Population Shows Signs of Decline After Control Measures",
+      "article_text": "OLONGAPO CITY - Local health monitoring shows a measurable decrease in mosquito populations following yesterday's intensive control operations. Dr. Roberto Cruz reported that mosquito trap counts have dropped by approximately 35% in treated areas. 'The fogging and larvicide treatments appear to be effective,' Cruz noted. However, officials warn that continued vigilance is needed as standing water from flooding continues to pose breeding risks.",
+      "published_at": "2025-07-06T12:15:00.000Z",
+      "source_outlet": "BusinessWorld",
+      "author": "Michael Torres",
+      "url": "https://bworld.com.ph/olongapo-mosquito-decline",
+      "location_mentioned": ["Olongapo City"],
+      "category": "Health"
+    },
+    "processing": {
+      "scraped_at": "2025-07-06T12:30:00.000Z",
+      "word_count": 63
+    }
+  },
+  {
+    "id": "raw_016",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123462",
+      "text": "Good news - fewer people in my area are reporting stomach problems today 🙏 maybe things are getting better? #OlongapoRecovery #HealthUpdate",
+      "created_at": "2025-07-06T13:00:00.000Z",
+      "author_id": "987654321014",
+      "public_metrics": {
+        "retweet_count": 28,
+        "like_count": 78,
+        "reply_count": 34,
+        "quote_count": 7
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f37",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.28, 14.84]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "66", "name": "Health"},
+          "entity": {"id": "847888632284016645", "name": "Recovery"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-06T13:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_017",
+    "type": "news",
+    "data": {
+      "headline": "Zambales Flood Waters Begin to Recede as Weather Improves",
+      "article_text": "ZAMBALES - After nearly a week of flooding, water levels in most affected areas of Zambales province have started to recede as weather conditions improve and tidal surges subside. The Provincial Disaster Risk Reduction Office reports that major roads are becoming passable and approximately 3,000 families are preparing to return to their homes. 'We're seeing significant improvement, but cleanup and recovery will take time,' said disaster coordinator Elena Marquez.",
+      "published_at": "2025-07-07T08:15:00.000Z",
+      "source_outlet": "GMA News",
+      "author": "Patricia Alonzo",
+      "url": "https://gmanews.tv/zambales-floods-receding",
+      "location_mentioned": ["Zambales"],
+      "category": "Weather"
+    },
+    "processing": {
+      "scraped_at": "2025-07-07T08:30:00.000Z",
+      "word_count": 71
+    }
+  },
+  {
+    "id": "raw_018",
+    "type": "hospital",
+    "data": {
+      "patient_id": "OGH_2025_001238",
+      "admission_datetime": "2025-07-07T08:00:00.000Z",
+      "chief_complaint": "Mild gastroenteritis symptoms",
+      "clinical_notes": "28F and 31M presenting with mild GI symptoms - loose stools and mild nausea. Both patients responding well to oral rehydration therapy. Symptoms much less severe than cases seen earlier in week. Appears to be tail end of outbreak with milder presentations. Both patients discharged home with ORS and dietary recommendations after 4-hour observation.",
+      "diagnosis_codes": ["K59.1"],
+      "admission_type": "emergency",
+      "disposition": "discharged",
+      "demographics": {
+        "age": 29,
+        "gender": "F",
+        "location": "Olongapo City"
+      }
+    },
+    "processing": {
+      "record_created_at": "2025-07-07T10:30:00.000Z",
+      "hospital_system": "Olongapo General Hospital"
+    }
+  },
+  {
+    "id": "raw_019",
+    "type": "twitter",
+    "data": {
+      "id": "1677234567890123463",
+      "text": "Community cleanup day was a success! 💪 People are feeling better and helping each other recover. Proud of how we came together #OlongapoStrong #CommunityRecovery",
+      "created_at": "2025-07-07T12:00:00.000Z",
+      "author_id": "987654321017",
+      "public_metrics": {
+        "retweet_count": 45,
+        "like_count": 134,
+        "reply_count": 67,
+        "quote_count": 15
+      },
+      "geo": {
+        "place_id": "01a9a39529b27f37",
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [120.28, 14.84]
+        }
+      },
+      "context_annotations": [
+        {
+          "domain": {"id": "67", "name": "Community"},
+          "entity": {"id": "847888632284016646", "name": "Recovery"}
+        }
+      ],
+      "lang": "en",
+      "possibly_sensitive": false
+    },
+    "processing": {
+      "retrieved_at": "2025-07-07T12:05:00.000Z",
+      "api_version": "2.0"
+    }
+  },
+  {
+    "id": "raw_020",
+    "type": "news",
+    "data": {
+      "headline": "Olongapo Issues Comprehensive Flood Safety Guidelines for Future Preparedness",
+      "article_text": "OLONGAPO CITY - Following last week's typhoon and subsequent health outbreak, the city government has released detailed flood safety and public health guidelines to better prepare residents for future weather events. The guidelines include water safety protocols, health monitoring procedures, and emergency response contacts. Mayor James Gonzalez emphasized, 'We've learned valuable lessons from this experience and want to ensure our community is better prepared.' The guidelines will be distributed to all barangays and are available online.",
+      "published_at": "2025-07-08T09:15:00.000Z",
+      "source_outlet": "Manila Standard",
+      "author": "Roberto Valdez",
+      "url": "https://manilastandard.net/olongapo-flood-safety-guidelines",
+      "location_mentioned": ["Olongapo City"],
+      "category": "Government"
+    },
+    "processing": {
+      "scraped_at": "2025-07-08T09:30:00.000Z",
+      "word_count": 84
+    }
+  }
+]

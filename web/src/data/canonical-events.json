@@ -1,0 +1,402 @@
+[
+  {
+    "id": "evt_001",
+    "timestamp": "2025-07-01T06:00:00.000Z",
+    "event_type": "weather",
+    "location": {
+      "name": "Zambales",
+      "lat": 15.2,
+      "lon": 120.1
+    },
+    "signal_value": 1.0,
+    "confidence": 0.95,
+    "source_type": "news",
+    "metadata": {
+      "description": "Typhoon Iniong makes landfall, category 2",
+      "severity": "high",
+      "affected_population": 50000,
+      "keywords": ["typhoon", "landfall", "Zambales", "category 2"]
+    },
+    "raw_event_ids": ["raw_001"]
+  },
+  {
+    "id": "evt_002",
+    "timestamp": "2025-07-02T09:30:00.000Z",
+    "event_type": "flood",
+    "location": {
+      "name": "Zambales",
+      "lat": 15.25,
+      "lon": 120.12
+    },
+    "signal_value": 0.9,
+    "confidence": 0.85,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Street underwater, #ZambalesFlood",
+      "severity": "high",
+      "affected_population": 5000,
+      "keywords": ["flood", "underwater", "street", "ZambalesFlood"]
+    },
+    "raw_event_ids": ["raw_002"]
+  },
+  {
+    "id": "evt_003",
+    "timestamp": "2025-07-02T14:00:00.000Z",
+    "event_type": "social_media_health_signal",
+    "location": {
+      "name": "Zambales",
+      "lat": 15.25,
+      "lon": 120.12
+    },
+    "signal_value": 0.7,
+    "confidence": 0.6,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Stomach upset after wading in water",
+      "severity": "medium",
+      "affected_population": 100,
+      "keywords": ["stomach", "upset", "water", "health"]
+    },
+    "raw_event_ids": ["raw_003"]
+  },
+  {
+    "id": "evt_004",
+    "timestamp": "2025-07-03T12:00:00.000Z",
+    "event_type": "vector_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.75,
+    "confidence": 0.8,
+    "source_type": "news",
+    "metadata": {
+      "description": "Mosquito activity increased, Aedes",
+      "severity": "medium",
+      "affected_population": 20000,
+      "keywords": ["mosquito", "aedes", "vector", "activity"]
+    },
+    "raw_event_ids": ["raw_004"]
+  },
+  {
+    "id": "evt_005",
+    "timestamp": "2025-07-03T15:00:00.000Z",
+    "event_type": "social_media_health_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.8,
+    "confidence": 0.7,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Diarrhea reports from residents",
+      "severity": "medium",
+      "affected_population": 200,
+      "keywords": ["diarrhea", "residents", "GI", "symptoms"]
+    },
+    "raw_event_ids": ["raw_005"]
+  },
+  {
+    "id": "evt_006",
+    "timestamp": "2025-07-04T10:30:00.000Z",
+    "event_type": "hospital_admission",
+    "location": {
+      "name": "Olongapo Hospital",
+      "lat": 14.85,
+      "lon": 120.28
+    },
+    "signal_value": 1.0,
+    "confidence": 0.95,
+    "source_type": "hospital",
+    "metadata": {
+      "description": "Patient admitted with vomiting & diarrhea",
+      "severity": "high",
+      "affected_population": 1,
+      "keywords": ["admission", "vomiting", "diarrhea", "gastroenteritis"]
+    },
+    "raw_event_ids": ["raw_006"]
+  },
+  {
+    "id": "evt_007",
+    "timestamp": "2025-07-04T11:00:00.000Z",
+    "event_type": "hospital_admission",
+    "location": {
+      "name": "Olongapo Hospital",
+      "lat": 14.85,
+      "lon": 120.28
+    },
+    "signal_value": 1.0,
+    "confidence": 0.95,
+    "source_type": "hospital",
+    "metadata": {
+      "description": "Patient admitted with fever & diarrhea",
+      "severity": "high",
+      "affected_population": 1,
+      "keywords": ["admission", "fever", "diarrhea", "gastroenteritis"]
+    },
+    "raw_event_ids": ["raw_007"]
+  },
+  {
+    "id": "evt_008",
+    "timestamp": "2025-07-04T13:00:00.000Z",
+    "event_type": "social_media_health_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.85,
+    "confidence": 0.75,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "More people reporting stomach upset",
+      "severity": "medium",
+      "affected_population": 300,
+      "keywords": ["stomach", "upset", "reports", "increasing"]
+    },
+    "raw_event_ids": ["raw_008"]
+  },
+  {
+    "id": "evt_009",
+    "timestamp": "2025-07-04T16:00:00.000Z",
+    "event_type": "vector_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.7,
+    "confidence": 0.65,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Tweets about mosquitoes in flooded streets",
+      "severity": "medium",
+      "affected_population": 5000,
+      "keywords": ["mosquitoes", "flooded", "streets", "vector"]
+    },
+    "raw_event_ids": ["raw_009"]
+  },
+  {
+    "id": "evt_010",
+    "timestamp": "2025-07-05T07:00:00.000Z",
+    "event_type": "flood",
+    "location": {
+      "name": "Zambales",
+      "lat": 15.25,
+      "lon": 120.12
+    },
+    "signal_value": 0.85,
+    "confidence": 0.9,
+    "source_type": "news",
+    "metadata": {
+      "description": "Rising water levels in coastal areas",
+      "severity": "high",
+      "affected_population": 8000,
+      "keywords": ["rising", "water", "coastal", "flooding"]
+    },
+    "raw_event_ids": ["raw_010"]
+  },
+  {
+    "id": "evt_011",
+    "timestamp": "2025-07-05T09:30:00.000Z",
+    "event_type": "hospital_admission",
+    "location": {
+      "name": "Olongapo Hospital",
+      "lat": 14.85,
+      "lon": 120.28
+    },
+    "signal_value": 1.0,
+    "confidence": 0.95,
+    "source_type": "hospital",
+    "metadata": {
+      "description": "Severe gastroenteritis cases admitted",
+      "severity": "high",
+      "affected_population": 3,
+      "keywords": ["severe", "gastroenteritis", "admitted", "multiple"]
+    },
+    "raw_event_ids": ["raw_011"]
+  },
+  {
+    "id": "evt_012",
+    "timestamp": "2025-07-05T14:00:00.000Z",
+    "event_type": "mortality",
+    "location": {
+      "name": "Olongapo Hospital",
+      "lat": 14.85,
+      "lon": 120.28
+    },
+    "signal_value": 1.0,
+    "confidence": 1.0,
+    "source_type": "hospital",
+    "metadata": {
+      "description": "Death, 45M, acute gastroenteritis",
+      "severity": "high",
+      "affected_population": 1,
+      "keywords": ["death", "mortality", "gastroenteritis", "male", "45"]
+    },
+    "raw_event_ids": ["raw_012"]
+  },
+  {
+    "id": "evt_013",
+    "timestamp": "2025-07-05T15:00:00.000Z",
+    "event_type": "social_media_health_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.8,
+    "confidence": 0.7,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Residents tweeting about sickness",
+      "severity": "medium",
+      "affected_population": 400,
+      "keywords": ["residents", "sickness", "tweets", "widespread"]
+    },
+    "raw_event_ids": ["raw_013"]
+  },
+  {
+    "id": "evt_014",
+    "timestamp": "2025-07-06T09:00:00.000Z",
+    "event_type": "policy_action",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 1.0,
+    "confidence": 0.95,
+    "source_type": "government",
+    "metadata": {
+      "description": "Mosquito control teams deployed",
+      "severity": "medium",
+      "affected_population": 50000,
+      "keywords": ["mosquito", "control", "teams", "deployed", "intervention"]
+    },
+    "raw_event_ids": ["raw_014"]
+  },
+  {
+    "id": "evt_015",
+    "timestamp": "2025-07-06T12:00:00.000Z",
+    "event_type": "vector_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.65,
+    "confidence": 0.8,
+    "source_type": "news",
+    "metadata": {
+      "description": "Mosquito counts declining",
+      "severity": "low",
+      "affected_population": 20000,
+      "keywords": ["mosquito", "declining", "counts", "improvement"]
+    },
+    "raw_event_ids": ["raw_015"]
+  },
+  {
+    "id": "evt_016",
+    "timestamp": "2025-07-06T13:00:00.000Z",
+    "event_type": "social_media_health_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.6,
+    "confidence": 0.65,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Fewer GI symptom reports",
+      "severity": "low",
+      "affected_population": 150,
+      "keywords": ["fewer", "GI", "symptoms", "declining", "recovery"]
+    },
+    "raw_event_ids": ["raw_016"]
+  },
+  {
+    "id": "evt_017",
+    "timestamp": "2025-07-07T08:00:00.000Z",
+    "event_type": "flood",
+    "location": {
+      "name": "Zambales",
+      "lat": 15.25,
+      "lon": 120.12
+    },
+    "signal_value": 0.6,
+    "confidence": 0.85,
+    "source_type": "news",
+    "metadata": {
+      "description": "Floodwaters starting to recede",
+      "severity": "medium",
+      "affected_population": 3000,
+      "keywords": ["floodwaters", "recede", "improving", "recovery"]
+    },
+    "raw_event_ids": ["raw_017"]
+  },
+  {
+    "id": "evt_018",
+    "timestamp": "2025-07-07T10:00:00.000Z",
+    "event_type": "hospital_admission",
+    "location": {
+      "name": "Olongapo Hospital",
+      "lat": 14.85,
+      "lon": 120.28
+    },
+    "signal_value": 0.9,
+    "confidence": 0.9,
+    "source_type": "hospital",
+    "metadata": {
+      "description": "Mild GI cases, patients discharged",
+      "severity": "low",
+      "affected_population": 2,
+      "keywords": ["mild", "GI", "discharged", "recovering"]
+    },
+    "raw_event_ids": ["raw_018"]
+  },
+  {
+    "id": "evt_019",
+    "timestamp": "2025-07-07T12:00:00.000Z",
+    "event_type": "social_media_health_signal",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 0.55,
+    "confidence": 0.6,
+    "source_type": "twitter",
+    "metadata": {
+      "description": "Tweets about recovery and cleanup",
+      "severity": "low",
+      "affected_population": 100,
+      "keywords": ["recovery", "cleanup", "improving", "positive"]
+    },
+    "raw_event_ids": ["raw_019"]
+  },
+  {
+    "id": "evt_020",
+    "timestamp": "2025-07-08T09:00:00.000Z",
+    "event_type": "policy_action",
+    "location": {
+      "name": "Olongapo City",
+      "lat": 14.84,
+      "lon": 120.28
+    },
+    "signal_value": 1.0,
+    "confidence": 0.95,
+    "source_type": "government",
+    "metadata": {
+      "description": "Flood safety guidelines issued",
+      "severity": "medium",
+      "affected_population": 50000,
+      "keywords": ["flood", "safety", "guidelines", "prevention", "preparedness"]
+    },
+    "raw_event_ids": ["raw_020"]
+  }
+]
