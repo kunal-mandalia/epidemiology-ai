@@ -27,7 +27,6 @@ export default function Timeline({ currentDate, onDateChange, startDate, endDate
 
   return (
     <div className="timeline">
-      <h3>Timeline Control</h3>
       <div className="timeline-slider">
         <div className="timeline-labels">
           <span>{formatDate(startDate)}</span>
@@ -42,9 +41,6 @@ export default function Timeline({ currentDate, onDateChange, startDate, endDate
           onChange={handleSliderChange}
           className="slider"
         />
-        <div className="timeline-info">
-          <p>July 1-8, 2025 • Typhoon Iniong Event Sequence</p>
-        </div>
       </div>
     </div>
   )

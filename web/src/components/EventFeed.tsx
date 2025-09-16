@@ -119,7 +119,6 @@ export default function EventFeed({ events, rawEvents, selectedEventId, onEventS
   return (
     <div className="event-feed">
       <div className="feed-header">
-        <h3>Event Feed</h3>
         <div className="view-toggle">
           <button 
             className={viewMode === 'canonical' ? 'active' : ''}

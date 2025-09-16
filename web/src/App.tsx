@@ -31,23 +31,23 @@ function App() {
       
       <div className="app-content">
         <div className="left-panel">
-          <AISummary events={filteredEvents} currentDate={currentDate} />
-          <Timeline 
-            currentDate={currentDate} 
+          <Timeline
+            currentDate={currentDate}
             onDateChange={setCurrentDate}
             startDate={new Date('2025-07-01T06:00:00.000Z')}
             endDate={new Date('2025-07-08T09:00:00.000Z')}
           />
-          <EventFeed 
+          <EventFeed
             events={filteredEvents}
             rawEvents={rawEvents}
             selectedEventId={selectedEventId}
             onEventSelect={setSelectedEventId}
           />
         </div>
-        
+
         <div className="right-panel">
-          <MapView 
+          <AISummary events={filteredEvents} currentDate={currentDate} />
+          <MapView
             events={filteredEvents}
             selectedEventId={selectedEventId}
             onEventSelect={setSelectedEventId}

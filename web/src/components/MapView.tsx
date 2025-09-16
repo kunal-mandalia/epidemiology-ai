@@ -317,15 +317,8 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
   return (
     <div className="map-view">
       <div className="map-header">
-        <div className="map-title-controls">
-          <h3>Geographic Distribution</h3>
-          <div className="map-controls">
-            <button onClick={zoomIn} className="map-control-btn" title="Zoom In">+</button>
-            <button onClick={zoomOut} className="map-control-btn" title="Zoom Out">−</button>
-            <button onClick={resetZoom} className="map-control-btn" title="Reset Zoom">⌂</button>
-          </div>
-        </div>
         <div className="map-legend">
+          <div className="map-legend-items">
           <div className="legend-item">
             <div className="legend-color" style={{backgroundColor: '#FF6B6B'}}></div>
             <span>Weather</span>
@@ -349,6 +342,12 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
           <div className="legend-item">
             <div className="legend-color" style={{backgroundColor: '#FDA085'}}></div>
             <span>Policy</span>
+          </div>
+          </div>
+          <div className="map-controls">
+            <button onClick={zoomIn} className="map-control-btn" title="Zoom In">+</button>
+            <button onClick={zoomOut} className="map-control-btn" title="Zoom Out">−</button>
+            <button onClick={resetZoom} className="map-control-btn" title="Reset Zoom">⌂</button>
           </div>
         </div>
       </div>
