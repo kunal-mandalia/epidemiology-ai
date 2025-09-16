@@ -15,6 +15,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
 
+
   useEffect(() => {
     fetch(worldMapSvg)
       .then(response => response.text())
@@ -40,11 +41,45 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     // Add pan and zoom container
     const mapGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g')
     mapGroup.setAttribute('class', 'map-transform-group')
-    
+
+    // Add dark blue background rectangle to the transform group
+    const backgroundRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
+    backgroundRect.setAttribute('x', '82.992')
+    backgroundRect.setAttribute('y', '45.607')
+    backgroundRect.setAttribute('width', '2528.5721')
+    backgroundRect.setAttribute('height', '1238.9154')
+    // backgroundRect.setAttribute('fill', 'white')
+    mapGroup.appendChild(backgroundRect)
+
     // Move all existing content into the transform group
     while (svgElement.firstChild) {
       mapGroup.appendChild(svgElement.firstChild)
     }
+
+    // Style all land areas with brown fill color
+    const allShapes = mapGroup.querySelectorAll('path, polygon, circle, ellipse, rect')
+
+    allShapes.forEach(shape => {
+      // Skip the background rectangle we added
+      if (shape === backgroundRect) return
+
+      // Force all shapes to be brown (land areas)
+      shape.setAttribute('fill', '#8B4513')
+      shape.style.fill = '#8B4513'
+    })
+
+    // Add comprehensive CSS to override any existing styles
+    const style = document.createElementNS('http://www.w3.org/2000/svg', 'style')
+    style.textContent = `
+      .map-transform-group * {
+        fill: #8B4513 !important;
+      }
+      .map-transform-group rect[fill="#2563eb"] {
+        fill: #2563eb !important;
+      }
+    `
+    mapGroup.appendChild(style)
+
     svgElement.appendChild(mapGroup)
 
     // Apply current transform
@@ -108,7 +143,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       const mouseY = e.clientY - rect.top
       
       const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1
-      const newScale = Math.min(Math.max(currentTransform.scale * scaleFactor, 0.5), 5)
+      const newScale = Math.min(Math.max(currentTransform.scale * scaleFactor, 0.5), 20)
       
       // Calculate new position to zoom toward mouse cursor
       const scaleChange = newScale / currentTransform.scale
@@ -129,17 +164,19 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       if (target.closest('.event-marker-group')) return
       
       isDraggingLocal = true
-      dragStartLocal = { x: e.clientX - currentTransform.x, y: e.clientY - currentTransform.y }
+      const panSensitivity = 2.0
+      dragStartLocal = { x: e.clientX - (currentTransform.x / panSensitivity), y: e.clientY - (currentTransform.y / panSensitivity) }
       svgElement.style.cursor = 'grabbing'
       e.preventDefault()
     }
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDraggingLocal) return
-      
-      const newX = e.clientX - dragStartLocal.x
-      const newY = e.clientY - dragStartLocal.y
-      
+
+      const panSensitivity = 2.0
+      const newX = (e.clientX - dragStartLocal.x) * panSensitivity
+      const newY = (e.clientY - dragStartLocal.y) * panSensitivity
+
       currentTransform = { ...currentTransform, x: newX, y: newY }
       setTransform(currentTransform)
       updateTransform(mapGroup, currentTransform)
@@ -176,7 +213,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
 
     events.forEach((event) => {
       const { x, y } = latLonToSvg(event.location.lat, event.location.lon)
-      const baseRadius = 4 + (event.signal_value * 8)
+      const baseRadius = 8 + (event.signal_value * 12)
       // Scale radius inversely with zoom level to maintain consistent visual size
       const radius = baseRadius / transform.scale
       const opacity = 0.6 + (event.confidence * 0.4)
@@ -192,8 +229,22 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       circle.setAttribute('opacity', opacity.toString())
       circle.setAttribute('stroke', selectedEventId === event.id ? '#000' : '#fff')
       // Scale stroke width inversely with zoom level
-      circle.setAttribute('stroke-width', (selectedEventId === event.id ? 2 : 1) / transform.scale)
+      circle.setAttribute('stroke-width', ((selectedEventId === event.id ? 2 : 1) / transform.scale).toString())
       circle.style.cursor = 'pointer'
+
+      // Add pulsing animation to the latest event
+      const isLatestEvent = events.length > 0 && event === events.reduce((latest, current) =>
+        new Date(current.timestamp) > new Date(latest.timestamp) ? current : latest
+      )
+
+      if (isLatestEvent) {
+        const animateElement = document.createElementNS('http://www.w3.org/2000/svg', 'animate')
+        animateElement.setAttribute('attributeName', 'r')
+        animateElement.setAttribute('values', `${radius};${radius * 1.3};${radius}`)
+        animateElement.setAttribute('dur', '2s')
+        animateElement.setAttribute('repeatCount', 'indefinite')
+        circle.appendChild(animateElement)
+      }
       
       circle.addEventListener('click', (e) => {
         e.stopPropagation()
@@ -207,7 +258,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
         text.setAttribute('x', (x + radius + 5).toString())
         text.setAttribute('y', (y - radius).toString())
         // Scale font size inversely with zoom level
-        text.setAttribute('font-size', (12 / transform.scale).toString())
+        text.setAttribute('font-size', (40 / transform.scale).toString())
         text.setAttribute('fill', '#333')
         text.style.pointerEvents = 'none'
         text.textContent = event.location.name
@@ -235,8 +286,20 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     if (container) {
       const mapGroup = container.querySelector('.map-transform-group') as SVGGElement
       if (mapGroup) {
-        const newScale = Math.min(transform.scale * 1.2, 5)
-        const newTransform = { ...transform, scale: newScale }
+        const rect = container.getBoundingClientRect()
+        // Zoom toward center of visible area
+        const centerX = rect.width / 2
+        const centerY = rect.height / 2
+
+        const scaleFactor = 1.2
+        const newScale = Math.min(transform.scale * scaleFactor, 20)
+
+        // Calculate new position to zoom toward center of current view
+        const scaleChange = newScale / transform.scale
+        const newX = transform.x + (centerX - transform.x) * (1 - scaleChange)
+        const newY = transform.y + (centerY - transform.y) * (1 - scaleChange)
+
+        const newTransform = { x: newX, y: newY, scale: newScale }
         setTransform(newTransform)
         updateTransform(mapGroup, newTransform)
       }
@@ -248,8 +311,20 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     if (container) {
       const mapGroup = container.querySelector('.map-transform-group') as SVGGElement
       if (mapGroup) {
-        const newScale = Math.max(transform.scale * 0.8, 0.5)
-        const newTransform = { ...transform, scale: newScale }
+        const rect = container.getBoundingClientRect()
+        // Zoom toward center of visible area
+        const centerX = rect.width / 2
+        const centerY = rect.height / 2
+
+        const scaleFactor = 0.8
+        const newScale = Math.max(transform.scale * scaleFactor, 0.5)
+
+        // Calculate new position to zoom toward center of current view
+        const scaleChange = newScale / transform.scale
+        const newX = transform.x + (centerX - transform.x) * (1 - scaleChange)
+        const newY = transform.y + (centerY - transform.y) * (1 - scaleChange)
+
+        const newTransform = { x: newX, y: newY, scale: newScale }
         setTransform(newTransform)
         updateTransform(mapGroup, newTransform)
       }
