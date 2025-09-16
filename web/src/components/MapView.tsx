@@ -12,8 +12,6 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
   const containerRef = useRef<HTMLDivElement>(null)
   const [svgContent, setSvgContent] = useState<string>('')
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 })
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     fetch(worldMapSvg)
@@ -192,7 +190,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       circle.setAttribute('opacity', opacity.toString())
       circle.setAttribute('stroke', selectedEventId === event.id ? '#000' : '#fff')
       // Scale stroke width inversely with zoom level
-      circle.setAttribute('stroke-width', (selectedEventId === event.id ? 2 : 1) / transform.scale)
+      circle.setAttribute('stroke-width', ((selectedEventId === event.id ? 2 : 1) / transform.scale).toString())
       circle.style.cursor = 'pointer'
       
       circle.addEventListener('click', (e) => {
