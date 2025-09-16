@@ -131,3 +131,11 @@ export interface EventsSummary {
   }>;
   key_insights: string[];
 }
+
+export interface AIAnalysisEntry {
+  date: string;
+  observations: string;
+  predictions: string;
+}
+
+export type AIAnalysisData = AIAnalysisEntry[];

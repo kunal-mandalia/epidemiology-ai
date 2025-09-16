@@ -3,12 +3,12 @@
     "id": "raw_001",
     "type": "news",
     "data": {
-      "headline": "Typhoon Iniong Makes Landfall in Zambales Province",
-      "article_text": "MANILA - Typhoon Iniong, a Category 2 storm, made landfall in Zambales province early Tuesday morning at 6:00 AM local time. The Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA) reported sustained winds of 150 km/h with gusts reaching 185 km/h. Coastal areas are experiencing heavy rainfall and dangerous storm surge conditions. Residents in low-lying areas have been evacuated to higher ground as authorities brace for widespread flooding and potential infrastructure damage.",
+      "headline": "Typhoon  Makes Landfall in Zambales Province",
+      "article_text": "MANILA - Typhoon , a Category 2 storm, made landfall in Zambales province early Tuesday morning at 6:00 AM local time. The Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA) reported sustained winds of 150 km/h with gusts reaching 185 km/h. Coastal areas are experiencing heavy rainfall and dangerous storm surge conditions. Residents in low-lying areas have been evacuated to higher ground as authorities brace for widespread flooding and potential infrastructure damage.",
       "published_at": "2025-07-01T06:15:00.000Z",
       "source_outlet": "Manila Bulletin",
       "author": "Maria Santos",
-      "url": "https://mb.com.ph/typhoon-iniong-zambales-landfall",
+      "url": "https://mb.com.ph/typhoon--zambales-landfall",
       "location_mentioned": ["Zambales", "Manila", "Philippines"],
       "category": "Weather"
     },
@@ -22,7 +22,7 @@
     "type": "twitter",
     "data": {
       "id": "1677234567890123456",
-      "text": "OMG street totally underwater here in Zambales! Cars floating everywhere 😱 #ZambalesFlood #TyphoonIniong #helpus",
+      "text": "OMG street totally underwater here in Zambales! Cars floating everywhere 😱 #ZambalesFlood #Typhoon #helpus",
       "created_at": "2025-07-02T09:30:00.000Z",
       "author_id": "987654321012",
       "public_metrics": {
@@ -259,7 +259,7 @@
     "type": "news",
     "data": {
       "headline": "Zambales Coastal Areas Face Rising Water Levels as Tide Surges Continue",
-      "article_text": "ZAMBALES - Water levels in coastal barangays of Zambales continue to rise as tidal surges compound existing flood conditions from Typhoon Iniong. The Provincial Disaster Risk Reduction and Management Office reported that several coastal communities remain under 2-3 feet of water, with some roads still impassable. 'The combination of heavy rainfall and storm surge is creating a prolonged flooding situation,' said Governor Maria Delgado. Emergency shelters are housing approximately 8,000 displaced residents.",
+      "article_text": "ZAMBALES - Water levels in coastal barangays of Zambales continue to rise as tidal surges compound existing flood conditions from Typhoon . The Provincial Disaster Risk Reduction and Management Office reported that several coastal communities remain under 2-3 feet of water, with some roads still impassable. 'The combination of heavy rainfall and storm surge is creating a prolonged flooding situation,' said Governor Maria Delgado. Emergency shelters are housing approximately 8,000 displaced residents.",
       "published_at": "2025-07-05T07:15:00.000Z",
       "source_outlet": "ABS-CBN News",
       "author": "Carlos Mendoza",

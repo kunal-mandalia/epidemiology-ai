@@ -1,0 +1,57 @@
+[
+  {
+    "date": "2025-07-01T06:00:00.000Z",
+    "observations": "Typhoon  making landfall across SE Asia with significant flooding expected. Weather monitoring systems active across Philippines, Thailand, and Vietnam. Initial disaster preparedness protocols engaged.",
+    "predictions": "Anticipate secondary health impacts within 48-72 hours post-flooding. Primary concerns: water contamination, sanitation breakdown, and population displacement. Recommend preemptive disease surveillance activation."
+  },
+  {
+    "date": "2025-07-01T14:30:00.000Z",
+    "observations": "Flood conditions confirmed across multiple provinces. Infrastructure damage limiting healthcare access. Early displacement of populations to temporary shelters with potential overcrowding.",
+    "predictions": "High probability of waterborne disease transmission within 3-5 days. Vector breeding sites expanding due to standing water. Recommend immediate water quality testing and sanitation protocols."
+  },
+  {
+    "date": "2025-07-02T09:15:00.000Z",
+    "observations": "First social media health signals detected: increased mentions of gastrointestinal symptoms in flood-affected areas. Pattern suggests possible early community transmission of enteric pathogens.",
+    "predictions": "Pre-clinical outbreak phase likely initiated. Expect formal case presentations within 24-48 hours. Case doubling time estimated at 2-3 days if uncontrolled. Immediate enhanced surveillance critical."
+  },
+  {
+    "date": "2025-07-02T16:45:00.000Z",
+    "observations": "Hospital admission spike detected at Regional Medical Center Tacloban - 300% increase in GI presentations. Clinical syndrome consistent with acute gastroenteritis. Age distribution shows vulnerability in children under 5.",
+    "predictions": "Outbreak transition from pre-clinical to clinical phase confirmed. Attack rate projection: 15-25% in affected communities over next week. Mortality risk elevated in vulnerable populations. Containment window rapidly closing."
+  },
+  {
+    "date": "2025-07-03T11:20:00.000Z",
+    "observations": "Multiple hospital systems now reporting similar patterns. Vector surveillance confirms increased Aedes populations in flood zones. Additional social media signals indicate symptom spread to previously unaffected districts.",
+    "predictions": "Multi-focal outbreak progression. Geographic expansion rate suggests reproduction number (R₀) > 2.5. Without intervention, expect 5000+ cases within 7 days. Immediate large-scale response required to prevent epidemic classification."
+  },
+  {
+    "date": "2025-07-04T08:00:00.000Z",
+    "observations": "First mortality events recorded - 3 deaths attributed to severe dehydration and complications. Case fatality rate currently 0.8%. Government emergency response protocols activated.",
+    "predictions": "Critical epidemic threshold reached. Mortality curve trending upward suggests healthcare system strain. Projection: 50-100 deaths possible without immediate intervention. Epidemic status likely within 48 hours."
+  },
+  {
+    "date": "2025-07-04T15:30:00.000Z",
+    "observations": "Government response deployed: mobile treatment units, water purification systems, and mass health screening initiated. International aid coordination beginning. Public health emergency declared regionally.",
+    "predictions": "Response intervention may slow transmission rate. Early intervention could reduce final attack rate by 40-60%. Monitor for intervention effectiveness over next 72 hours. Cautiously optimistic for outbreak control if resources sustained."
+  },
+  {
+    "date": "2025-07-05T10:45:00.000Z",
+    "observations": "Positive trend: new case rate showing signs of plateau in areas with rapid intervention. Treatment centers at 85% capacity but managing demand. Vector control measures showing early effectiveness.",
+    "predictions": "Intervention impact becoming measurable. Reproduction number may be declining toward R₀ = 1.2-1.5. If trend continues, peak cases expected within 3-5 days, followed by gradual decline. Maintain intensive intervention for 14 days minimum."
+  },
+  {
+    "date": "2025-07-06T13:15:00.000Z",
+    "observations": "Case incidence clearly declining in core outbreak zones. Mortality rate stabilizing at 1.1%. Recovery rates improving with enhanced treatment protocols. Community compliance with prevention measures high.",
+    "predictions": "Outbreak control phase achieved. Expect continued case decline over next 7-10 days. Total case estimate: 12,000-15,000. Final mortality: 150-200 deaths. Focus shifting to recovery phase planning and infrastructure restoration."
+  },
+  {
+    "date": "2025-07-07T16:00:00.000Z",
+    "observations": "Sustained decline in new cases across all affected regions. Healthcare system capacity returning to normal. No new geographic expansion detected. Vector populations showing reduction from control measures.",
+    "predictions": "Outbreak resolution phase initiated. Residual transmission expected for 10-14 days but at manageable levels. Long-term surveillance required for 6 weeks to detect any resurgence. Epidemic successfully contained through rapid response."
+  },
+  {
+    "date": "2025-07-08T09:00:00.000Z",
+    "observations": "Final assessment: outbreak contained with total case count at 13,847 and 178 deaths (CFR: 1.29%). Lessons learned documented for future preparedness. Infrastructure recovery ongoing. International response phase concluding.",
+    "predictions": "Post-epidemic surveillance phase. Monitor for delayed cases and long-term health impacts. Strengthen preparedness systems based on response analysis. Risk of similar future outbreaks remains elevated during flood seasons - recommend enhanced early warning systems."
+  }
+]

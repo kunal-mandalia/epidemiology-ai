@@ -148,7 +148,7 @@ This setup gives a self-contained, offline-ready, highly interactive lecture dem
 
 | #  | Event Type                    | Timestamp         | Location Name     | Lat   | Lon    | Signal Value | Source   | Metadata Summary                           |
 | -- | ----------------------------- | ----------------- | ----------------- | ----- | ------ | ------------ | -------- | ------------------------------------------ |
-| 1  | weather                       | 2025-07-01T06:00Z | Zambales          | 15.2  | 120.1  | 1.0          | news     | Typhoon Iniong makes landfall, cat 2       |
+| 1  | weather                       | 2025-07-01T06:00Z | Zambales          | 15.2  | 120.1  | 1.0          | news     | Typhoon  makes landfall, cat 2       |
 | 2  | flood                         | 2025-07-02T09:30Z | Zambales          | 15.25 | 120.12 | 0.9          | twitter  | Street underwater, #ZambalesFlood          |
 | 3  | social\_media\_health\_signal | 2025-07-02T14:00Z | Zambales          | 15.25 | 120.12 | 0.7          | twitter  | Stomach upset after wading in water        |
 | 4  | vector\_signal                | 2025-07-03T12:00Z | Olongapo City     | 14.84 | 120.28 | 0.75         | news     | Mosquito activity increased, Aedes         |

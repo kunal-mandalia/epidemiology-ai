@@ -13,6 +13,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
   const [svgContent, setSvgContent] = useState<string>('')
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 })
 
+
   useEffect(() => {
     fetch(worldMapSvg)
       .then(response => response.text())
@@ -38,11 +39,28 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     // Add pan and zoom container
     const mapGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g')
     mapGroup.setAttribute('class', 'map-transform-group')
-    
+
     // Move all existing content into the transform group
     while (svgElement.firstChild) {
       mapGroup.appendChild(svgElement.firstChild)
     }
+
+    // CSS to change colors to match Google Maps style
+    const style = document.createElementNS('http://www.w3.org/2000/svg', 'style')
+    style.textContent = `
+      .map-transform-group .landxx,
+      .map-transform-group .coastxx,
+      .map-transform-group .limitxx,
+      .map-transform-group *[fill="#e0e0e0"] {
+        fill: #f2f0e8 !important;
+      }
+      .map-transform-group .oceanxx,
+      .map-transform-group *[fill="#ffffff"] {
+        fill: #a8dadc !important;
+      }
+    `
+    mapGroup.appendChild(style)
+
     svgElement.appendChild(mapGroup)
 
     // Apply current transform
@@ -106,7 +124,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       const mouseY = e.clientY - rect.top
       
       const scaleFactor = e.deltaY > 0 ? 0.9 : 1.1
-      const newScale = Math.min(Math.max(currentTransform.scale * scaleFactor, 0.5), 5)
+      const newScale = Math.min(Math.max(currentTransform.scale * scaleFactor, 0.5), 20)
       
       // Calculate new position to zoom toward mouse cursor
       const scaleChange = newScale / currentTransform.scale
@@ -127,17 +145,19 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       if (target.closest('.event-marker-group')) return
       
       isDraggingLocal = true
-      dragStartLocal = { x: e.clientX - currentTransform.x, y: e.clientY - currentTransform.y }
+      const panSensitivity = 2.0
+      dragStartLocal = { x: e.clientX - (currentTransform.x / panSensitivity), y: e.clientY - (currentTransform.y / panSensitivity) }
       svgElement.style.cursor = 'grabbing'
       e.preventDefault()
     }
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDraggingLocal) return
-      
-      const newX = e.clientX - dragStartLocal.x
-      const newY = e.clientY - dragStartLocal.y
-      
+
+      const panSensitivity = 2.0
+      const newX = (e.clientX - dragStartLocal.x) * panSensitivity
+      const newY = (e.clientY - dragStartLocal.y) * panSensitivity
+
       currentTransform = { ...currentTransform, x: newX, y: newY }
       setTransform(currentTransform)
       updateTransform(mapGroup, currentTransform)
@@ -174,7 +194,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
 
     events.forEach((event) => {
       const { x, y } = latLonToSvg(event.location.lat, event.location.lon)
-      const baseRadius = 4 + (event.signal_value * 8)
+      const baseRadius = 8 + (event.signal_value * 12)
       // Scale radius inversely with zoom level to maintain consistent visual size
       const radius = baseRadius / transform.scale
       const opacity = 0.6 + (event.confidence * 0.4)
@@ -192,6 +212,20 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       // Scale stroke width inversely with zoom level
       circle.setAttribute('stroke-width', ((selectedEventId === event.id ? 2 : 1) / transform.scale).toString())
       circle.style.cursor = 'pointer'
+
+      // Add pulsing animation to the latest event
+      const isLatestEvent = events.length > 0 && event === events.reduce((latest, current) =>
+        new Date(current.timestamp) > new Date(latest.timestamp) ? current : latest
+      )
+
+      if (isLatestEvent) {
+        const animateElement = document.createElementNS('http://www.w3.org/2000/svg', 'animate')
+        animateElement.setAttribute('attributeName', 'r')
+        animateElement.setAttribute('values', `${radius};${radius * 1.3};${radius}`)
+        animateElement.setAttribute('dur', '2s')
+        animateElement.setAttribute('repeatCount', 'indefinite')
+        circle.appendChild(animateElement)
+      }
       
       circle.addEventListener('click', (e) => {
         e.stopPropagation()
@@ -205,7 +239,7 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
         text.setAttribute('x', (x + radius + 5).toString())
         text.setAttribute('y', (y - radius).toString())
         // Scale font size inversely with zoom level
-        text.setAttribute('font-size', (12 / transform.scale).toString())
+        text.setAttribute('font-size', (40 / transform.scale).toString())
         text.setAttribute('fill', '#333')
         text.style.pointerEvents = 'none'
         text.textContent = event.location.name
@@ -233,8 +267,20 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     if (container) {
       const mapGroup = container.querySelector('.map-transform-group') as SVGGElement
       if (mapGroup) {
-        const newScale = Math.min(transform.scale * 1.2, 5)
-        const newTransform = { ...transform, scale: newScale }
+        const rect = container.getBoundingClientRect()
+        // Zoom toward center of visible area
+        const centerX = rect.width / 2
+        const centerY = rect.height / 2
+
+        const scaleFactor = 1.2
+        const newScale = Math.min(transform.scale * scaleFactor, 20)
+
+        // Calculate new position to zoom toward center of current view
+        const scaleChange = newScale / transform.scale
+        const newX = transform.x + (centerX - transform.x) * (1 - scaleChange)
+        const newY = transform.y + (centerY - transform.y) * (1 - scaleChange)
+
+        const newTransform = { x: newX, y: newY, scale: newScale }
         setTransform(newTransform)
         updateTransform(mapGroup, newTransform)
       }
@@ -246,8 +292,20 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     if (container) {
       const mapGroup = container.querySelector('.map-transform-group') as SVGGElement
       if (mapGroup) {
-        const newScale = Math.max(transform.scale * 0.8, 0.5)
-        const newTransform = { ...transform, scale: newScale }
+        const rect = container.getBoundingClientRect()
+        // Zoom toward center of visible area
+        const centerX = rect.width / 2
+        const centerY = rect.height / 2
+
+        const scaleFactor = 0.8
+        const newScale = Math.max(transform.scale * scaleFactor, 0.5)
+
+        // Calculate new position to zoom toward center of current view
+        const scaleChange = newScale / transform.scale
+        const newX = transform.x + (centerX - transform.x) * (1 - scaleChange)
+        const newY = transform.y + (centerY - transform.y) * (1 - scaleChange)
+
+        const newTransform = { x: newX, y: newY, scale: newScale }
         setTransform(newTransform)
         updateTransform(mapGroup, newTransform)
       }
@@ -257,15 +315,8 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
   return (
     <div className="map-view">
       <div className="map-header">
-        <div className="map-title-controls">
-          <h3>Geographic Distribution</h3>
-          <div className="map-controls">
-            <button onClick={zoomIn} className="map-control-btn" title="Zoom In">+</button>
-            <button onClick={zoomOut} className="map-control-btn" title="Zoom Out">−</button>
-            <button onClick={resetZoom} className="map-control-btn" title="Reset Zoom">⌂</button>
-          </div>
-        </div>
         <div className="map-legend">
+          <div className="map-legend-items">
           <div className="legend-item">
             <div className="legend-color" style={{backgroundColor: '#FF6B6B'}}></div>
             <span>Weather</span>
@@ -290,6 +341,12 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
             <div className="legend-color" style={{backgroundColor: '#FDA085'}}></div>
             <span>Policy</span>
           </div>
+          </div>
+          <div className="map-controls">
+            <button onClick={zoomIn} className="map-control-btn" title="Zoom In">+</button>
+            <button onClick={zoomOut} className="map-control-btn" title="Zoom Out">−</button>
+            <button onClick={resetZoom} className="map-control-btn" title="Reset Zoom">⌂</button>
+          </div>
         </div>
       </div>
 
@@ -300,8 +357,8 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       </div>
       
       <div className="map-info">
-        <p>Drag to pan • Scroll to zoom • Click markers for details</p>
-        <p>Showing {events.length} events • Zoom: {Math.round(transform.scale * 100)}% • Philippines: ~15°N, 120°E</p>
+        <small><i>OneHealth AI demo developed in collaboration with 
+Dr Claire Scantlebury</i></small>
       </div>
     </div>
   )
