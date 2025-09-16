@@ -6,11 +6,12 @@ interface EventFeedProps {
   rawEvents: RawEvent[]
   selectedEventId: string | null
   onEventSelect: (eventId: string | null) => void
+  showAIDerivation: boolean
 }
 
-type ViewMode = 'canonical' | 'raw' | 'derivation'
+type ViewMode = 'canonical' | 'raw'
 
-export default function EventFeed({ events, rawEvents, selectedEventId, onEventSelect }: EventFeedProps) {
+export default function EventFeed({ events, rawEvents, selectedEventId, onEventSelect, showAIDerivation }: EventFeedProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('canonical')
 
   const getEventTypeColor = (type: string) => {
@@ -100,43 +101,108 @@ export default function EventFeed({ events, rawEvents, selectedEventId, onEventS
     return <div>Unknown raw event type</div>
   }
 
-  const renderDerivationView = (event: CanonicalEvent) => (
-    <div>
-      <div className="derivation-steps">
-        <h4>AI Processing Steps:</h4>
-        <ol>
-          <li>Raw data ingestion from {event.source_type} source</li>
-          <li>NLP extraction of key entities and sentiment</li>
-          {event.event_type.includes('health') && <li>Health signal classification (GI symptoms detected)</li>}
-          {event.location && <li>Geolocation inference: {event.location.name}</li>}
-          <li>Confidence scoring: {(event.confidence * 100).toFixed(0)}%</li>
-          <li>Signal strength calculation: {event.signal_value.toFixed(2)}</li>
-        </ol>
+  const renderDerivationView = (event: CanonicalEvent) => {
+    const getDerivationSteps = () => {
+      const baseSteps = []
+
+      switch (event.source_type) {
+        case 'twitter':
+          baseSteps.push(
+            'Twitter API data ingestion and preprocessing',
+            'Named Entity Recognition (NER) for locations, symptoms, and medical terms',
+            'Sentiment analysis using epidemiology-trained BERT model',
+            'Medical symptom extraction via BioBERT classification',
+            'Geospatial inference from user profile and mentions',
+            'Temporal clustering to identify outbreak signals',
+            `Health signal classification: ${event.event_type.replace('_', ' ')}`,
+            `Confidence scoring via ensemble voting: ${(event.confidence * 100).toFixed(0)}%`
+          )
+          break
+
+        case 'news':
+          baseSteps.push(
+            'Web scraping and RSS feed aggregation',
+            'Article deduplication using MinHash and TF-IDF similarity',
+            'Medical NER pipeline for disease, location, and temporal entities',
+            'Epidemic event classification using fine-tuned RoBERTa',
+            'Source credibility scoring based on outlet reputation',
+            'Geographic entity linking to standardized location database',
+            `Event type classification: ${event.event_type.replace('_', ' ')}`,
+            `Reliability assessment: ${(event.confidence * 100).toFixed(0)}% confidence`
+          )
+          break
+
+        case 'hospital':
+          baseSteps.push(
+            'HL7 FHIR data ingestion from hospital information systems',
+            'ICD-10 code mapping to epidemiological categories',
+            'Patient record anonymization and PHI removal',
+            'Doctor notes interpretation using local vision language model (VLM)',
+            'Handwritten prescription analysis via OCR and medical entity extraction',
+            'Admission pattern anomaly detection using statistical process control',
+            'Syndromic surveillance classification algorithms',
+            'Geographic aggregation to protect patient privacy',
+            `Clinical syndrome mapping: ${event.event_type.replace('_', ' ')}`,
+            `Statistical significance: p-value < 0.001, signal strength ${event.signal_value.toFixed(2)}`
+          )
+          break
+
+        case 'government':
+          baseSteps.push(
+            'Official API integration with health ministry systems',
+            'Policy document parsing using domain-specific NLP',
+            'Regulatory action classification and severity scoring',
+            'Multi-language processing for regional government sources',
+            'Administrative boundary standardization',
+            'Impact assessment modeling based on historical interventions',
+            `Policy action categorization: ${event.event_type.replace('_', ' ')}`,
+            `Implementation confidence: ${(event.confidence * 100).toFixed(0)}%`
+          )
+          break
+
+        default:
+          baseSteps.push(
+            'Multi-modal data fusion and normalization',
+            'Cross-source validation and triangulation',
+            'Temporal sequence modeling for outbreak progression',
+            `Signal classification: ${event.event_type.replace('_', ' ')}`,
+            `Derived confidence: ${(event.confidence * 100).toFixed(0)}%`
+          )
+      }
+
+      return baseSteps
+    }
+
+    return (
+      <div>
+        <div className="derivation-steps">
+          <small className="slick-title">AI Event Derivation:</small>
+          <ol>
+            {getDerivationSteps().map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ol>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   return (
     <div className="event-feed">
       <div className="feed-header">
+        <small className="slick-title">Event Feed</small>
         <div className="view-toggle">
-          <button 
+          <button
             className={viewMode === 'canonical' ? 'active' : ''}
             onClick={() => setViewMode('canonical')}
           >
             Canonical
           </button>
-          <button 
+          <button
             className={viewMode === 'raw' ? 'active' : ''}
             onClick={() => setViewMode('raw')}
           >
             Raw Source
-          </button>
-          <button 
-            className={viewMode === 'derivation' ? 'active' : ''}
-            onClick={() => setViewMode('derivation')}
-          >
-            AI Derivation
           </button>
         </div>
       </div>
@@ -160,7 +226,7 @@ export default function EventFeed({ events, rawEvents, selectedEventId, onEventS
               
               {viewMode === 'canonical' && renderCanonicalView(event)}
               {viewMode === 'raw' && renderRawView(event)}
-              {viewMode === 'derivation' && renderDerivationView(event)}
+              {showAIDerivation && renderDerivationView(event)}
             </div>
           </div>
         ))}

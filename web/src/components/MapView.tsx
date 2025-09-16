@@ -359,8 +359,8 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       </div>
       
       <div className="map-info">
-        <p>Drag to pan • Scroll to zoom • Click markers for details</p>
-        <p>Showing {events.length} events • Zoom: {Math.round(transform.scale * 100)}% • Philippines: ~15°N, 120°E</p>
+        <small><i>OneHealth AI demo developed in collaboration with 
+Dr Claire Scantlebury</i></small>
       </div>
     </div>
   )

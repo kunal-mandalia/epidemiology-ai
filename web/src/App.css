@@ -58,6 +58,42 @@ body, html {
   color: #6b7280;
 }
 
+.ai-derivation-toggle {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e9ecef;
+  background: white;
+  color: #666;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-derivation-toggle:hover {
+  background: #f8f9fa;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.ai-derivation-toggle.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: bold;
+  margin-right: 0.35rem;
+}
+
 .app-content {
   display: flex;
   flex: 1;
@@ -80,7 +116,7 @@ body, html {
   flex: 1;
   padding: 1rem;
   background: white;
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
@@ -321,7 +357,7 @@ body, html {
 
 /* Timeline */
 .timeline {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   padding: 1rem;
   background: white;
   /* border: 1px solid #e9ecef; */
@@ -389,6 +425,17 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 400;
+}
+
+.slick-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 0.5rem;
+  display: block;
 }
 
 .feed-header h3 {
@@ -550,10 +597,17 @@ body, html {
   color: #666;
 }
 
-.derivation-steps h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 0.9rem;
-  color: #333;
+.derivation-steps {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.derivation-steps.compact {
+  height: 110px;
+  overflow: scroll;
 }
 
 .derivation-steps ol {
@@ -565,6 +619,44 @@ body, html {
 
 .derivation-steps li {
   margin-bottom: 0.3rem;
+}
+
+/* Streaming and Loading Effects */
+.streaming-cursor {
+  animation: blink 1s infinite;
+  font-weight: bold;
+  color: #007bff;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.ml-loading, .ml-processing {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-style: italic;
+}
+
+.loading-spinner, .processing-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #e9ecef;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.processing-spinner {
+  border-top-color: #28a745;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Map View */

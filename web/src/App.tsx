@@ -14,6 +14,7 @@ function App() {
   const [rawEvents] = useState<RawEvent[]>(rawEventsData as RawEvent[])
   const [filteredEvents, setFilteredEvents] = useState<CanonicalEvent[]>([])
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null)
+  const [showAIDerivation, setShowAIDerivation] = useState(false)
 
   useEffect(() => {
     const filtered = canonicalEvents.filter(event => 
@@ -30,9 +31,17 @@ function App() {
           <p className="subtitle">SE Asia Typhoon Event Analysis</p>
         </div>
         <div className="app-header-right">
-          <span>Demo Environment</span>
+          <button
+            className={`ai-derivation-toggle ${showAIDerivation ? 'active' : ''}`}
+            onClick={() => setShowAIDerivation(!showAIDerivation)}
+            title="Show how AI is used to derive events, summarise observations, and make predictions"
+          >
+            <span className="info-icon">i</span> AI Derivation
+          </button>
           <span>•</span>
           <span>{filteredEvents.length} Events</span>
+          <span>•</span>
+          <span>Demo Environment</span>
         </div>
       </header>
       
@@ -49,11 +58,12 @@ function App() {
             rawEvents={rawEvents}
             selectedEventId={selectedEventId}
             onEventSelect={setSelectedEventId}
+            showAIDerivation={showAIDerivation}
           />
         </div>
 
         <div className="right-panel">
-          <AISummary events={filteredEvents} currentDate={currentDate} />
+          <AISummary events={filteredEvents} currentDate={currentDate} showAIDerivation={showAIDerivation} />
           <MapView
             events={filteredEvents}
             selectedEventId={selectedEventId}
