@@ -42,40 +42,23 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
     const mapGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g')
     mapGroup.setAttribute('class', 'map-transform-group')
 
-    // Add dark blue background rectangle to the transform group
-    const backgroundRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
-    backgroundRect.setAttribute('x', '82.992')
-    backgroundRect.setAttribute('y', '45.607')
-    backgroundRect.setAttribute('width', '2528.5721')
-    backgroundRect.setAttribute('height', '1238.9154')
-    // backgroundRect.setAttribute('fill', 'white')
-    mapGroup.appendChild(backgroundRect)
-
     // Move all existing content into the transform group
     while (svgElement.firstChild) {
       mapGroup.appendChild(svgElement.firstChild)
     }
 
-    // Style all land areas with brown fill color
-    const allShapes = mapGroup.querySelectorAll('path, polygon, circle, ellipse, rect')
-
-    allShapes.forEach(shape => {
-      // Skip the background rectangle we added
-      if (shape === backgroundRect) return
-
-      // Force all shapes to be brown (land areas)
-      shape.setAttribute('fill', '#8B4513')
-      shape.style.fill = '#8B4513'
-    })
-
-    // Add comprehensive CSS to override any existing styles
+    // CSS to change colors to match Google Maps style
     const style = document.createElementNS('http://www.w3.org/2000/svg', 'style')
     style.textContent = `
-      .map-transform-group * {
-        fill: #8B4513 !important;
+      .map-transform-group .landxx,
+      .map-transform-group .coastxx,
+      .map-transform-group .limitxx,
+      .map-transform-group *[fill="#e0e0e0"] {
+        fill: #f2f0e8 !important;
       }
-      .map-transform-group rect[fill="#2563eb"] {
-        fill: #2563eb !important;
+      .map-transform-group .oceanxx,
+      .map-transform-group *[fill="#ffffff"] {
+        fill: #a8dadc !important;
       }
     `
     mapGroup.appendChild(style)
