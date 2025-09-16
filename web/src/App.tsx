@@ -25,8 +25,15 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Epidemiology AI Demo</h1>
-        <p>Typhoon Iniong - SE Asia Event Sequence Analysis</p>
+        <div className="app-header-left">
+          <h1>Epidemiology AI</h1>
+          <p className="subtitle">SE Asia Typhoon Event Analysis</p>
+        </div>
+        <div className="app-header-right">
+          <span>Demo Environment</span>
+          <span>•</span>
+          <span>{filteredEvents.length} Events</span>
+        </div>
       </header>
       
       <div className="app-content">
