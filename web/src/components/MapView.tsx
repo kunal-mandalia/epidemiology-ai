@@ -357,8 +357,8 @@ export default function MapView({ events, selectedEventId, onEventSelect }: MapV
       </div>
       
       <div className="map-info">
-        <small><i>OneHealth AI demo developed in collaboration with 
-Dr Claire Scantlebury</i></small>
+        <small><i>OneHealth AI demo developed in collaboration with Kunal Mandalia and 
+Dr Claire Scantlebury. <a href="https://github.com/kunal-mandalia/epidemiology-ai" target="_blank" rel="noopener noreferrer">Source code available on GitHub.</a></i></small>
       </div>
     </div>
   )
